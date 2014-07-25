@@ -1,0 +1,74 @@
+testCases:
+   - testCase:
+      test: '= Hi ='
+      expected: '# Hi'
+   - testCase:
+      test: '== Hi =='
+      expected: '## Hi'
+   - testCase:
+      test: '=== Hi ==='
+      expected: '### Hi'
+   - testCase:
+      test: '==== Hi ===='
+      expected: '#### Hi'
+   - testCase:
+      test: '[http://www.example.org/en Example]'
+      expected: '[Example](http://www.example.org/en)'
+   - testCase:
+      test: '[http://www.example.org/en]'
+      expected: '[http://www.example.org/en](http://www.example.org/en)'
+   - testCase:
+       test: '[wiki:docs Technical Documentation]'
+       expected: '[[docs|Technical Documentation]]'
+   - testCase:
+       test: '[docs Technical Documentation]'
+       expected: '[[docs|Technical Documentation]]'
+   - testCase:
+       test: '[wiki:tech:docs Technical Documentation]'
+       expected: '[[tech:docs|Technical Documentation]]'
+   - testCase:
+      test: "'''bold'''"
+      expected: '**bold**'
+   - testCase:
+      test: "''italic''"
+      expected: '_italic_'
+   - testCase:
+      test: "Text before a list.\r\n* Point 1 \r\n* Point 2\r\n"
+      expected: "Text before a list.\r\n\r\n* Point 1 \r\n* Point 2\r\n"
+   - testCase:
+      test: "Text before a list.\r\na. Point 1 \r\nb. Point 2\r\n"
+      expected: "Text before a list.\r\n\r\na. Point 1 \r\nb. Point 2\r\n"
+   - testCase:
+      test: '[[Image(/path/to/image.png)]]'
+      expected: '![](/path/to/image.png)'
+   - testCase:
+      test: '{{{ inline-block }}}'
+      expected: '` inline-block `'
+   - testCase:
+      test: '[[br]]'
+      expected: "  \r\n"
+   - testCase:
+      test: '[[BR]]'
+      expected: "  \r\n"
+   - testCase:
+      test: 'line \\ break'
+      expected: "line   \r\nbreak"
+   - testCase:
+       test: "this line that is wrapped with a line break \r\nto another line"
+       expected: "this line that is wrapped with a line break to another line"
+   - testCase:
+       test: "this line \r\n should break"
+       expected: "this line \r\n should break"
+   - testCase:
+      test: "||'''Person'''||'''Role'''||'''Involvement'''||"
+      expected: "|**Person**|**Role**|**Involvement**|\r\n\r\n"
+   - testCase:
+      test: "||''Person''||''Role''||''Involvement''||"
+      expected: "|_Person_|_Role_|_Involvement_|\r\n\r\n"
+   - testCase:
+      test: "{{{\r\ntest\r\ntest\r\n}}}"
+      expected: "\r\n\ttest\r\n\ttest\r\n"
+   - testCase:
+      test: "||Person||Role||Involvement||\r\n||John Doe||Tester||0.1 FTE||\r\n||Jane Smith||Developer||0.1 FTE||\r\n\r\n"
+      expected: "|Person|Role|Involvement|\r\n|---|---|---|\r\n|John Doe|Tester|0.1 FTE|\r\n|Jane Smith|Developer|0.1 FTE|\r\n\r\n"
+

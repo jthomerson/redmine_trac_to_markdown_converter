@@ -1,0 +1,17 @@
+
+# db connection info
+dbuser: yourUsernameHere
+dbpass: yourPasswordHere
+dbname: yourDatabaseNameHere
+
+# id of the author for inserting versioned rows
+author_id: 108
+
+# a list of db tables and their fields to filter / update
+fields:
+   journals:
+      - notes
+   wiki_contents:
+      - text
+   issues:
+      - description
